@@ -1,9 +1,1 @@
-{
-  "liveServer.settings.customFiles": [
-    {
-      "match": "\\.(json)$",
-      "path": "levels/level1.json",
-      "contentType": "application/json"
-    }
-  ]
-}
+{}

@@ -1,13 +1,12 @@
-import { Component } from '../ecs/ECS.js';
+import { Component } from '/ecs/ECS.js';
 
 export class BackgroundComponent extends Component {
-    constructor(levelBackground) {
-        super();
-        this.texture = levelBackground.texture;
-        this.width = levelBackground.width;
-        this.height = levelBackground.height;
-        this.sprite = this.texture.createSprite();
-        this.sprite.width = this.width;
-        this.sprite.height = this.height;
+    constructor(data) {
+        super(data);
+        this.texture = data.texture;
+        this.width = data.width;
+        this.height = data.height;
+        this.x = data.x;
+        this.y = data.y;
     }
 }

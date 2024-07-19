@@ -1,77 +1,61 @@
-export class Component
-{
-    constructor(data = {})
-    {
+export class Component {
+    constructor(data = {}) {
         Object.assign(this, data);
     }
 }
 
-export class Entity
-{
-    constructor(id)
-    {
+export class Entity {
+    constructor(id) {
         this.id = id;
         this.components = new Map();
         this.componentTypes = new Set();
     }
 
-    addComponent(component)
-    {
+    addComponent(component) {
         this.components.set(component.constructor, component);
         this.componentTypes.add(component.constructor);
     }
 
-    removeComponent(ComponentClass)
-    {
+    removeComponent(ComponentClass) {
         this.components.delete(ComponentClass);
         this.componentTypes.delete(ComponentClass);
     }
 
-    getComponent(ComponentClass)
-    {
+    getComponent(ComponentClass) {
         return this.components.get(ComponentClass);
     }
 
-    hasComponent(ComponentClass)
-    {
+    hasComponent(ComponentClass) {
         return this.componentTypes.has(ComponentClass);
     }
 }
 
-export class System
-{
-    constructor()
-    {
+export class System {
+    constructor() {
         this.world = null;
         this.requiredComponents = [];
         this.entities = [];
     }
 
-    init(world)
-    {
+    init(world) {
         this.world = world;
     }
 
-    update(deltaTime)
-    {
-        // Override this method in derived systems
-    }
+    //предназначен для переопределения в производных системах
+    update(deltaTime) {}
 
-    matchEntity(entity)
-    {
+    //проверяет, есть ли у сущности все необходимые компоненты, указанные в requiredComponents
+    matchEntity(entity) {
         return this.requiredComponents.every(ComponentClass => entity.hasComponent(ComponentClass));
     }
 
-    addEntity(entity)
-    {
-        if (this.matchEntity(entity) && !this.entities.includes(entity))
-        {
+    addEntity(entity) {
+        if (this.matchEntity(entity) && !this.entities.includes(entity)) {
             this.entities.push(entity);
         }
     }
 
-    removeEntity(entity)
-    {
+    removeEntity(entity) {
         const index = this.entities.indexOf(entity);
         if (index !== -1)
         {
@@ -88,55 +72,42 @@ export class World
         this.nextEntityId = 1;
     }
 
-    createEntity()
-    {
+    createEntity() {
         const entity = new Entity(this.nextEntityId++);
         this.entities.set(entity.id, entity);
-        for (const system of this.systems)
-        {
+        for (const system of this.systems) {
             system.addEntity(entity);
         }
         return entity;
     }
 
-    removeEntity(entityId)
-    {
+    removeEntity(entityId) {
         const entity = this.entities.get(entityId);
-        if (entity)
-        {
-            for (const system of this.systems)
-            {
+        if (entity) {
+            for (const system of this.systems) {
                 system.removeEntity(entity);
             }
             this.entities.delete(entityId);
         }
     }
 
-    addSystem(system)
-    {
-        system.init(this);
+    addSystem(system) {
         this.systems.push(system);
-        // Add existing entities to the new system
-        for (const entity of this.entities.values())
-        {
+        system.init(this);
+        for (const entity of this.entities.values()) {
             system.addEntity(entity);
         }
     }
 
-    update(deltaTime)
-    {
-        for (const system of this.systems)
-        {
+    update(deltaTime) {
+        for (const system of this.systems) {
             system.update(deltaTime);
         }
     }
 
-    updateEntityComponents(entity)
-    {
-        for (const system of this.systems)
-        {
-            if (system.matchEntity(entity))
-            {
+    updateEntityComponents(entity) {
+        for (const system of this.systems) {
+            if (system.matchEntity(entity)) {
                 system.addEntity(entity);
             } else {
                 system.removeEntity(entity);
