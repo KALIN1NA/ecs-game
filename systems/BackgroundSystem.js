@@ -9,17 +9,11 @@ export class BackgroundSystem extends System {
     }
 
     update(deltaTime) {
-        Renderer.app.stage.removeChildren();
-
+        //Renderer.app.stage.removeChildren();
         for (const entity of this.entities) {
             const backgroundComponent = entity.getComponent(BackgroundComponent);
             if (backgroundComponent) {
-                const background = new PIXI.Sprite(backgroundComponent.texture);
-                background.width = backgroundComponent.width;
-                background.height = backgroundComponent.height;
-                background.x = backgroundComponent.x;
-                background.y = backgroundComponent.y;
-                Renderer.addChild(background);
+                backgroundComponent.sprite.visible = true;
             }
         }
     }

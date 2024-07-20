@@ -3,6 +3,7 @@ import { BackgroundSystem } from '/systems/BackgroundSystem.js';
 import { Loader } from '/core/Loader.js';
 import { LevelParser } from '/core/LevelParser.js';
 import { Renderer } from '/utils/Renderer.js';
+import level1Data from '../levels/level1.json';
 
 export class GameController {
     static async start() {
@@ -21,6 +22,7 @@ export class GameController {
             height: window.innerHeight
         });
         document.body.appendChild(app.canvas);
+        //document.body.appendChild(app.canvas.view);
 
         Renderer.initialize(app);
 
@@ -34,6 +36,9 @@ export class GameController {
             return;
         }
 
-        world.update(0);
+        app.ticker.add((delta) => {
+            world.update(delta);
+            Renderer.render(world.scene);
+        });
     }
 }
