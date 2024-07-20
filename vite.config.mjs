@@ -1,5 +1,6 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import eslint from 'vite-plugin-eslint';
+import {copy} from "vite-plugin-copy";
 
 export default defineConfig({
     build: {
@@ -15,6 +16,12 @@ export default defineConfig({
         eslint({
             cache: false,
             fix: true,
+        }),
+        copy({
+            targets: [
+                {src: 'assets/*', dest: 'dist/assets'}
+            ],
+            hook: 'writeBundle',
         }),
     ],
 });
