@@ -1,4 +1,4 @@
-export class Renderer {
+export class StageManager {
     static app;
 
     static initialize(appInstance) {

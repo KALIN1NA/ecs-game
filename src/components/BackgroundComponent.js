@@ -1,5 +1,7 @@
-import { Component } from '/ecs/ECS.js';
-
+import {Component} from '/src/ecs/ECS.js';
+import * as PIXI from 'pixijs'
+import {Renderer} from "pixijs";
+import {StageManager} from "../utils/StageManager";
 export class BackgroundComponent extends Component {
     constructor(data) {
         super(data);
@@ -11,11 +13,11 @@ export class BackgroundComponent extends Component {
         this.sprite.y = data.y;
     }
 
-    view(scene) {
-        scene.addChild(this.sprite);
+    view() {
+        StageManager.addChild(this.sprite);
     }
 
-    deleteView(scene) {
-        scene.removeChild(this.sprite);
+    deleteView() {
+        StageManager.removeChild(this.sprite);
     }
 }

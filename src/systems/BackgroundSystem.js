@@ -1,6 +1,6 @@
-import { System } from '/ecs/ECS.js';
-import { BackgroundComponent } from '/components/BackgroundComponent.js';
-import { Renderer } from '/utils/Renderer.js';
+import {System} from '/src/ecs/ECS.js';
+import {BackgroundComponent} from '/src/components/BackgroundComponent.js';
+import {StageManager} from '/src/utils/StageManager.js';
 
 export class BackgroundSystem extends System {
     constructor() {
