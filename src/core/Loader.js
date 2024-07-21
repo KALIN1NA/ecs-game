@@ -1,27 +1,24 @@
-import {World} from '/src/ecs/ECS.js';
-import {BackgroundComponent} from '/src/components/BackgroundComponent.js';
 import * as PIXI from 'pixijs'
+import imagesMap from '../../gamedata/images.json';
 
 export class Loader {
-    static async loadLevel(levelData, world) {
-        const {texture: backgroundUrl, width, height, x, y} = levelData.background;
+    static prefixAssets(assetMap, pathPrefix) {
+        const prefixedAssetMap = [];
+
+        for (const key in assetMap) {
+            prefixedAssetMap.push({alias: [key], src: pathPrefix + assetMap[key]})
+        }
+        return prefixedAssetMap
+    }
+
+    static async loadAssets() {
         try {
-            await PIXI.Assets.load({alias: ['level1_map'], src: "/assets/images/" + backgroundUrl});
-            const texture = PIXI.Assets.get('level1_map');
+            await PIXI.Assets.load(Loader.prefixAssets(imagesMap, "assets/images/"));
+            const texture = PIXI.Assets.get('level1_bg');
             console.log(texture)
             console.log('Available assets:', PIXI.Assets.cache);
-            const backgroundComponent = new BackgroundComponent({
-                texture: texture.baseTexture,
-                width,
-                height,
-                x,
-                y
-            });
-            const entity = world.createEntity();
-            entity.addComponent(backgroundComponent);
-            backgroundComponent.view();
         } catch (error) {
-            console.error(`Error loading texture from ${backgroundUrl}:`, error);
+            console.error(`Failed to load textures:`, error);
         }
     }
 }
