@@ -9,12 +9,6 @@ import * as PIXI from 'pixijs';
 export class GameController {
     static async start() {
         let levelData = level1Data;
-        // try {
-        //     levelData = await LevelParser.parse('../levels/level1.json');
-        // } catch (error) {
-        //     console.error('Error loading level:', error);
-        //     return;
-        // }
 
         const app = new PIXI.Application({
             background: '#000000',
@@ -22,7 +16,6 @@ export class GameController {
             height: window.innerHeight
         });
         document.body.appendChild(app.view);
-        //document.body.appendChild(app.canvas.view);
 
         StageManager.initialize(app);
 
@@ -38,7 +31,6 @@ export class GameController {
 
         app.ticker.add((delta) => {
             world.update(delta);
-            //StageManager.render(world.scene);
         });
     }
 }

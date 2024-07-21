@@ -1,10 +1,9 @@
 import {World} from '/src/ecs/ECS.js';
 import {BackgroundComponent} from '/src/components/BackgroundComponent.js';
-import level1Data from '../../levels/level1.json';
 import * as PIXI from 'pixijs'
 
 export class Loader {
-    static async loadLevel(levelData, world, scene) {
+    static async loadLevel(levelData, world) {
         const {texture: backgroundUrl, width, height, x, y} = levelData.background;
         try {
             await PIXI.Assets.load({alias: ['level1_map'], src: "/assets/images/" + backgroundUrl});

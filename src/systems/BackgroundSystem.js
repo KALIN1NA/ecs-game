@@ -9,7 +9,6 @@ export class BackgroundSystem extends System {
     }
 
     update(deltaTime) {
-        //Renderer.app.stage.removeChildren();
         for (const entity of this.entities) {
             const backgroundComponent = entity.getComponent(BackgroundComponent);
             if (backgroundComponent) {
