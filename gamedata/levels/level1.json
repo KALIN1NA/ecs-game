@@ -1,0 +1,15 @@
+{
+  "id": "level1",
+  "name": "Level 1",
+  "entities": [
+    {
+      "type": "background",
+      "texture": "level1_bg",
+      "width": 1920,
+      "height": 1080,
+      "x": 0,
+      "y": 0
+    }
+  ]
+}
+
