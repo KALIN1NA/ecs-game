@@ -1,4 +1,5 @@
 import {BackgroundComponent} from "../components/BackgroundComponent";
+import {WallComponent} from "../components/WallComponent";
 import {Entity} from "../ecs/ECS";
 
 export class EntityFactory {
@@ -13,6 +14,19 @@ export class EntityFactory {
 
         entity.addComponent(new BackgroundComponent({
             texture: texture,
+            width,
+            height,
+            x,
+            y
+        }));
+
+        return entity;
+    }
+
+    wall({width, height, x, y}) {
+        let entity = new Entity();
+
+        entity.addComponent(new WallComponent({
             width,
             height,
             x,
