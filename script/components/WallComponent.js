@@ -8,6 +8,8 @@ export class WallComponent extends Component {
         this.height = data.height;
         this.x = data.x;
         this.y = data.y;
+        this.alpha = data.alpha;
+        this.color = data.color;
         this.sprite = null;
     }
 }
