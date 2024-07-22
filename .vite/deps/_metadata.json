@@ -1,0 +1,15 @@
+{
+  "hash": "b0270bf4",
+  "configHash": "402e3664",
+  "lockfileHash": "e3b0c442",
+  "browserHash": "2b82eb38",
+  "optimized": {
+    "pixijs": {
+      "src": "../../node_modules/pixijs/browser/index.mjs",
+      "file": "pixijs.js",
+      "fileHash": "ab13168c",
+      "needsInterop": false
+    }
+  },
+  "chunks": {}
+}

@@ -1,7 +1,7 @@
 import {SpriteComponent} from "../components/SpriteComponent";
 import {Entity} from "../ecs/ECS";
 
-class EntityFactory {
+export class EntityFactory {
     constructor(world, resourceManager) {
         this.world = world;
         this.resourceManager = resourceManager;

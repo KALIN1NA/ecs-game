@@ -25,7 +25,7 @@ export class SpriteSystem extends System {
 
     onEntityEnterCache(entity) {
         const backgroundComponent = entity.getComponent(SpriteComponent);
-        console.log("sss")
+        console.log("sss");
 
         if (!backgroundComponent.sprite) {
             const texture = backgroundComponent.texture;

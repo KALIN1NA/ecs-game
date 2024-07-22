@@ -1,4 +1,0 @@
-
-class PositionComponent extends Component {
-
-}

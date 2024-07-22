@@ -1,5 +1,5 @@
-import * as PIXI from 'pixijs'
 import imagesMap from '/gamedata/images.json';
+import * as PIXI from 'pixijs';
 
 export class Loader {
     static prefixAssets(assetMap, pathPrefix) {
@@ -13,10 +13,11 @@ export class Loader {
 
     static async loadAssets() {
         try {
-            await PIXI.Assets.load(Loader.prefixAssets(imagesMap, "assets/images/"));
-            const texture = PIXI.Assets.get('level1_bg');
-            console.log(texture)
-            console.log('Available assets:', PIXI.Assets.cache);
+            const assets = Loader.prefixAssets(imagesMap, "assets/images/");
+            // console.log("Loading assets:", assets);
+            await PIXI.Assets.load(assets);
+            // console.log(texture)
+            // console.log('Available assets:', PIXI.Assets.cache);
         } catch (error) {
             console.error(`Failed to load textures:`, error);
         }
