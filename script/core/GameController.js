@@ -1,5 +1,5 @@
 import {World} from '/script/ecs/ECS.js';
-import {SpriteSystem} from '/script/systems/SpriteSystem.js';
+import {BackgroundSystem} from '/script/systems/BackgroundSystem.js';
 import {Loader} from '/script/core/Loader.js';
 import {LevelParser} from '/script/core/LevelParser.js';
 import level1Data from '/gamedata/levels/level1.json';
@@ -17,7 +17,9 @@ export class GameController {
         await Loader.loadAssets();
 
         const world = new World();
-        world.addSystem(new SpriteSystem(app.stage));
+        world.addSystem(new BackgroundSystem(app.stage));
+        //world.addSystem(new SpriteSystem(app.stage));
+        //world.addSystem(new SpriteSystem(app.stage));
 
         let factory = new EntityFactory(world, PIXI.Assets)
         try {

@@ -1,4 +1,4 @@
-import {SpriteComponent} from "../components/SpriteComponent";
+import {BackgroundComponent} from "../components/BackgroundComponent";
 import {Entity} from "../ecs/ECS";
 
 export class EntityFactory {
@@ -11,7 +11,7 @@ export class EntityFactory {
         texture = this.resourceManager.get(texture);
         let entity = new Entity();
 
-        entity.addComponent(new SpriteComponent({
+        entity.addComponent(new BackgroundComponent({
             texture: texture,
             width,
             height,
