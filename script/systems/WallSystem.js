@@ -13,8 +13,8 @@ export class WallSystem extends System {
         const wallComponent = entity.getComponent(WallComponent);
         if (wallComponent) {
             const wallGraphics = new PIXI.Graphics();
-            wallGraphics.beginFill(0x1F, 0);
-            wallGraphics.drawRect(0, 0, wallComponent.width, wallComponent.height);
+            wallGraphics.beginFill(wallComponent.color, wallComponent.alpha);
+            wallGraphics.drawRect(wallComponent.x, wallComponent.y, wallComponent.width, wallComponent.height);
             wallGraphics.endFill();
             wallGraphics.x = wallComponent.x;
             wallGraphics.y = wallComponent.y;
