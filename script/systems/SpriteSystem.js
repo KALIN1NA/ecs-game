@@ -9,7 +9,7 @@ export class SpriteSystem extends System {
         this.requiredComponents = [SpriteComponent];
     }
 
-    update(deltaTime) {
+    update() {
         for (const entity of this.entities) {
             const backgroundComponent = entity.getComponent(SpriteComponent);
             if (backgroundComponent) {

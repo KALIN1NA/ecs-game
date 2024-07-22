@@ -45,7 +45,7 @@ export class System {
     }
 
     //предназначен для переопределения в производных системах
-    update(deltaTime) {
+    update() {
     }
 
     //проверяет, есть ли у сущности все необходимые компоненты, указанные в requiredComponents
@@ -68,10 +68,10 @@ export class System {
         }
     }
 
-    onEntityEnterCache(entity) {
+    onEntityEnterCache() {
     }
 
-    onEntityLeaveCache(entity) {
+    onEntityLeaveCache() {
     }
 }
 
