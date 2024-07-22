@@ -23,14 +23,16 @@ export class EntityFactory {
         return entity;
     }
 
-    wall({width, height, x, y}) {
+    wall({width, height, x, y, alpha, color}) {
         let entity = new Entity();
 
         entity.addComponent(new WallComponent({
             width,
             height,
             x,
-            y
+            y,
+            alpha,
+            color
         }));
 
         return entity;
