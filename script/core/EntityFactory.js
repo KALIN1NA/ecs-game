@@ -1,5 +1,5 @@
 import {BackgroundComponent} from "../components/BackgroundComponent";
-import {WallComponent} from "../components/WallComponent";
+import {PlatformComponent} from "../components/PlatformComponent";
 import {Entity} from "../ecs/ECS";
 
 export class EntityFactory {
@@ -23,14 +23,16 @@ export class EntityFactory {
         return entity;
     }
 
-    wall({width, height, x, y}) {
+    platform({width, height, x, y, alpha, color}) {
         let entity = new Entity();
 
-        entity.addComponent(new WallComponent({
+        entity.addComponent(new PlatformComponent({
             width,
             height,
             x,
-            y
+            y,
+            alpha,
+            color
         }));
 
         return entity;

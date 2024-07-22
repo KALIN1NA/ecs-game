@@ -1,16 +1,16 @@
 import {System} from '../ecs/ECS.js';
-import {WallComponent} from '../components/WallComponent.js';
+import {PlatformComponent} from '../components/PlatformComponent.js';
 import * as PIXI from 'pixijs';
 
-export class WallSystem extends System {
+export class PlatformSystem extends System {
     constructor(stage) {
         super();
         this.stage = stage;
-        this.requiredComponents = [WallComponent];
+        this.requiredComponents = [PlatformComponent];
     }
 
     createWall(entity) {
-        const wallComponent = entity.getComponent(WallComponent);
+        const wallComponent = entity.getComponent(PlatformComponent);
         if (wallComponent) {
             const wallGraphics = new PIXI.Graphics();
             wallGraphics.beginFill(wallComponent.color, wallComponent.alpha);
@@ -28,7 +28,7 @@ export class WallSystem extends System {
     }
 
     onEntityLeaveCache(entity) {
-        const wallComponent = entity.getComponent(WallComponent);
+        const wallComponent = entity.getComponent(PlatformComponent);
         if (wallComponent && wallComponent.graphics) {
             this.stage.removeChild(wallComponent.graphics);
             wallComponent.graphics = null;

@@ -115,6 +115,10 @@ export class World {
         }
     }
 
+    getEntities() {
+        return this.entities;
+    }
+
     updateEntityComponents(entity) {
         for (const system of this.systems) {
             if (system.matchEntity(entity)) {

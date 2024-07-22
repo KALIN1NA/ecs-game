@@ -1,6 +1,6 @@
 import {World} from '../ecs/ECS.js';
 import {BackgroundSystem} from '../systems/BackgroundSystem.js';
-import {WallSystem} from '../systems/WallSystem.js';
+import {PlatformSystem} from '../systems/PlatformSystem.js';
 import {Loader} from './Loader.js';
 import {LevelParser} from './LevelParser.js';
 import level1Data from '/gamedata/levels/level1.json';
@@ -15,12 +15,15 @@ export class GameController {
             height: window.innerHeight
         });
         document.body.appendChild(app.view);
-        await Loader.loadAssets();
 
         const world = new World();
         world.addSystem(new BackgroundSystem(app.stage));
-        world.addSystem(new WallSystem(app.stage));
+        world.addSystem(new PlatformSystem(app.stage));
         //world.addSystem(new SpriteSystem(app.stage));
+
+        // window.addEventListener('resize', () => resizeCanvas(app, world))
+        // resizeCanvas(app, world);
+        await Loader.loadAssets();
 
         let factory = new EntityFactory(world, PIXI.Assets)
         try {

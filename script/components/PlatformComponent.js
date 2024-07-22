@@ -1,6 +1,6 @@
 import {Component} from '../ecs/ECS';
 
-export class WallComponent extends Component {
+export class PlatformComponent extends Component {
     constructor(data) {
         super(data);
         this.type = data.type;
