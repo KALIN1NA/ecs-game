@@ -64,13 +64,4 @@ export class CollisionSystem extends System {
             }
         }
     }
-
-    checkCollision(component1, component2) {
-        return (
-            component1.collideRight > component2.collideLeft &&
-            component1.collideLeft < component2.collideRight &&
-            component1.collideBottom > component2.collideTop &&
-            component1.collideTop < component2.collideBottom
-        );
-    }
 }
