@@ -115,6 +115,10 @@ export class World {
         }
     }
 
+    getSystem(systemClass) {
+        return this.systems.find(system => system instanceof systemClass);
+    }
+
     getEntities() {
         return this.entities;
     }

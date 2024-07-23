@@ -1,59 +1,207 @@
 {
   "id": "level1",
   "name": "Level 1",
+  "dimensions": {
+    "width": 2560,
+    "height": 1460
+  },
   "entities": [
     {
       "type": "background",
       "texture": "level1_bg",
-      "width": 1920,
-      "height": 1080,
+      "width": 2560,
+      "height": 1460,
       "x": 0,
       "y": 0
     },
     {
       "type": "wall",
-      "width": 20,
-      "height": 1080,
-      "x": 0,
+      "width": 50,
+      "height": 1460,
+      "x": 40,
       "y": 0,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0xFF0000"
     },
     {
       "type": "wall",
-      "width": 20,
-      "height": 1080,
-      "x": 1900,
+      "width": 50,
+      "height": 1460,
+      "x": 2460,
       "y": 0,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0xFF0000"
     },
     {
-      "type": "wall",
-      "width": 1920,
-      "height": 20,
-      "x": 0,
-      "y": 0,
-      "alpha": 0,
-      "color": "0x00"
-    },
-    {
-      "type": "wall",
-      "width": 1920,
-      "height": 20,
-      "x": 0,
-      "y": 1060,
+      "type": "platform",
+      "width": 470,
+      "height": 40,
+      "x": 190,
+      "y": 435,
       "alpha": 0,
       "color": "0x00"
     },
     {
       "type": "platform",
-      "width": 20,
-      "height": 20,
-      "x": 0,
-      "y": 500,
+      "width": 570,
+      "height": 40,
+      "x": 950,
+      "y": 580,
       "alpha": 0,
       "color": "0x00"
+    },
+    {
+      "type": "platform",
+      "width": 780,
+      "height": 40,
+      "x": 1680,
+      "y": 580,
+      "alpha": 0,
+      "color": "0x00"
+    },
+    {
+      "type": "trapdoor",
+      "width": 150,
+      "height": 40,
+      "x": 800,
+      "y": 580,
+      "alpha": 0,
+      "color": "0xFF0000"
+    },
+    {
+      "type": "trapdoor",
+      "width": 150,
+      "height": 40,
+      "x": 1525,
+      "y": 580,
+      "alpha": 0,
+      "color": "0xFF0000"
+    },
+    {
+      "type": "platform",
+      "width": 1120,
+      "height": 40,
+      "x": 310,
+      "y": 820,
+      "alpha": 0,
+      "color": "0x00"
+    },
+    {
+      "type": "platform",
+      "width": 340,
+      "height": 40,
+      "x": 1575,
+      "y": 820,
+      "alpha": 0,
+      "color": "0x00"
+    },
+    {
+      "type": "platform",
+      "width": 400,
+      "height": 40,
+      "x": 2060,
+      "y": 820,
+      "alpha": 0,
+      "color": "0x00"
+    },
+    {
+      "type": "trapdoor",
+      "width": 220,
+      "height": 40,
+      "x": 90,
+      "y": 820,
+      "alpha": 0,
+      "color": "0xFF0000"
+    },
+    {
+      "type": "trapdoor",
+      "width": 150,
+      "height": 40,
+      "x": 1430,
+      "y": 820,
+      "alpha": 0,
+      "color": "0xFF0000"
+    },
+    {
+      "type": "trapdoor",
+      "width": 150,
+      "height": 40,
+      "x": 1915,
+      "y": 820,
+      "alpha": 0,
+      "color": "0xFF0000"
+    },
+    {
+      "type": "platform",
+      "width": 330,
+      "height": 40,
+      "x": 300,
+      "y": 1080,
+      "alpha": 0,
+      "color": "0x00"
+    },
+    {
+      "type": "platform",
+      "width": 550,
+      "height": 40,
+      "x": 800,
+      "y": 1080,
+      "alpha": 0,
+      "color": "0x00"
+    },
+    {
+      "type": "platform",
+      "width": 440,
+      "height": 40,
+      "x": 1500,
+      "y": 1080,
+      "alpha": 0,
+      "color": "0x00"
+    },
+    {
+      "type": "trapdoor",
+      "width": 210,
+      "height": 40,
+      "x": 90,
+      "y": 1080,
+      "alpha": 0,
+      "color": "0xFF0000"
+    },
+    {
+      "type": "trapdoor",
+      "width": 170,
+      "height": 40,
+      "x": 630,
+      "y": 1080,
+      "alpha": 0,
+      "color": "0xFF0000"
+    },
+    {
+      "type": "trapdoor",
+      "width": 230,
+      "height": 40,
+      "x": 1350,
+      "y": 1080,
+      "alpha": 0,
+      "color": "0xFF0000"
+    },
+    {
+      "type": "platform",
+      "width": 440,
+      "height": 40,
+      "x": 2020,
+      "y": 1180,
+      "alpha": 0,
+      "color": "0x00"
+    },
+    {
+      "type": "platform",
+      "width": 2420,
+      "height": 40,
+      "x": 90,
+      "y": 1420,
+      "alpha": 0,
+      "color": "0xFF0000"
     }
   ]
 }

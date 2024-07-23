@@ -6,6 +6,7 @@ import {LevelParser} from './LevelParser.js';
 import level1Data from '/gamedata/levels/level1.json';
 import * as PIXI from 'pixijs';
 import EntityFactory from "./EntityFactory";
+import {resizeCanvas} from "../utils/Resize"
 
 export class GameController {
     static async start() {
@@ -21,8 +22,8 @@ export class GameController {
         world.addSystem(new PlatformSystem(app.stage));
         //world.addSystem(new SpriteSystem(app.stage));
 
-        // window.addEventListener('resize', () => resizeCanvas(app, world))
-        // resizeCanvas(app, world);
+        window.addEventListener('resize', () => resizeCanvas(app, world))
+        resizeCanvas(app, world);
         await Loader.loadAssets();
 
         let factory = new EntityFactory(world, PIXI.Assets)

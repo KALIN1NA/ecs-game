@@ -23,9 +23,8 @@ export class EntityFactory {
         return entity;
     }
 
-    platform({width, height, x, y, alpha, color}) {
+    wall({width, height, x, y, alpha, color}) {
         let entity = new Entity();
-
         entity.addComponent(new PlatformComponent({
             width,
             height,
@@ -34,7 +33,32 @@ export class EntityFactory {
             alpha,
             color
         }));
+        return entity;
+    }
 
+    platform({width, height, x, y, alpha, color}) {
+        let entity = new Entity();
+        entity.addComponent(new PlatformComponent({
+            width,
+            height,
+            x,
+            y,
+            alpha,
+            color
+        }));
+        return entity;
+    }
+
+    trapdoor({width, height, x, y, alpha, color}) {
+        let entity = new Entity();
+        entity.addComponent(new PlatformComponent({
+            width,
+            height,
+            x,
+            y,
+            alpha,
+            color
+        }));
         return entity;
     }
 

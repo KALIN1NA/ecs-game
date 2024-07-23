@@ -8,7 +8,7 @@ export class PlatformComponent extends Component {
         this.height = data.height;
         this.x = data.x;
         this.y = data.y;
-        this.alpha = data.alpha;
+        this.alpha = data.alpha || 1;
         this.color = data.color;
         this.sprite = null;
     }

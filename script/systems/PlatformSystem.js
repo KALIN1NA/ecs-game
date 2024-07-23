@@ -9,29 +9,41 @@ export class PlatformSystem extends System {
         this.requiredComponents = [PlatformComponent];
     }
 
-    createWall(entity) {
-        const wallComponent = entity.getComponent(PlatformComponent);
-        if (wallComponent) {
-            const wallGraphics = new PIXI.Graphics();
-            wallGraphics.beginFill(wallComponent.color, wallComponent.alpha);
-            wallGraphics.drawRect(wallComponent.x, wallComponent.y, wallComponent.width, wallComponent.height);
-            wallGraphics.endFill();
-            wallGraphics.x = wallComponent.x;
-            wallGraphics.y = wallComponent.y;
-            this.stage.addChild(wallGraphics);
-            wallComponent.graphics = wallGraphics;
+    createPlatform(entity) {
+        const platformComponent = entity.getComponent(PlatformComponent);
+        if (platformComponent) {
+            const platformGraphics = new PIXI.Graphics();
+            platformGraphics.beginFill(platformComponent.color, platformComponent.alpha);
+            platformGraphics.drawRect(0, 0, platformComponent.width, platformComponent.height);
+            platformGraphics.endFill();
+            platformGraphics.x = platformComponent.x;
+            platformGraphics.y = platformComponent.y;
+            this.stage.addChild(platformGraphics);
+            platformComponent.graphics = platformGraphics;
         }
     }
 
     onEntityEnterCache(entity) {
-        this.createWall(entity);
+        this.createPlatform(entity);
     }
 
     onEntityLeaveCache(entity) {
-        const wallComponent = entity.getComponent(PlatformComponent);
-        if (wallComponent && wallComponent.graphics) {
-            this.stage.removeChild(wallComponent.graphics);
-            wallComponent.graphics = null;
+        const platformComponent = entity.getComponent(PlatformComponent);
+        if (platformComponent && platformComponent.graphics) {
+            this.stage.removeChild(platformComponent.graphics);
+            platformComponent.graphics = null;
+        }
+    }
+
+    updatePlatforms() {
+        for (const entity of this.entities) {
+            const platformComponent = entity.getComponent(PlatformComponent);
+            if (platformComponent && platformComponent.graphics) {
+                platformComponent.graphics.x = platformComponent.x;
+                platformComponent.graphics.y = platformComponent.y;
+                platformComponent.graphics.width = platformComponent.width;
+                platformComponent.graphics.height = platformComponent.height;
+            }
         }
     }
 }
