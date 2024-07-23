@@ -2,6 +2,7 @@ import {World} from '../ecs/ECS.js';
 import {BackgroundSystem} from '../systems/BackgroundSystem.js';
 import {PlatformSystem} from '../systems/PlatformSystem.js';
 import {PhysicsSystem} from '../subsystems/PhysicsSystem.js';
+import {CollisionSystem} from '../subsystems/CollisionSystem.js';
 import {Loader} from './Loader.js';
 import {LevelParser} from './LevelParser.js';
 import level1Data from '/gamedata/levels/level1.json';
@@ -22,6 +23,7 @@ export class GameController {
         world.addSystem(new BackgroundSystem(app.stage));
         world.addSystem(new PlatformSystem(app.stage));
         world.addSystem(new PhysicsSystem());
+        world.addSystem(new CollisionSystem());
         //world.addSystem(new SpriteSystem(app.stage));
 
         window.addEventListener('resize', () => resizeCanvas(app, world))
