@@ -1,5 +1,6 @@
 import {BackgroundComponent} from "../components/BackgroundComponent";
 import {PlatformComponent} from "../components/PlatformComponent";
+import {PhysicsComponent} from "../components/PhysicsComponent";
 import {Entity} from "../ecs/ECS";
 
 export class EntityFactory {
@@ -58,6 +59,16 @@ export class EntityFactory {
             y,
             alpha,
             color
+        }));
+        return entity;
+    }
+
+    physics({velocity, gravity, isGrounded}) {
+        let entity = new Entity();
+        entity.addComponent(new PhysicsComponent({
+            velocity,
+            gravity,
+            isGrounded
         }));
         return entity;
     }
