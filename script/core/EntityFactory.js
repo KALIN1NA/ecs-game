@@ -1,12 +1,77 @@
+import {Entity} from "../ecs/ECS.js";
+import {HeroComponent} from "../components/HeroComponent.js";
+import {PositionComponent} from "../components/PositionComponent.js";
+import {AnimationComponent} from "../components/AnimationComponent.js";
+import {WeaponComponent} from "../components/WeaponComponent.js";
+import {ColliderComponent} from "../components/ColliderComponent.js";
 import {BackgroundComponent} from "../components/BackgroundComponent";
 import {PlatformComponent} from "../components/PlatformComponent";
 import {PhysicsComponent} from "../components/PhysicsComponent";
-import {Entity} from "../ecs/ECS";
+import {BonusComponent} from "../components/BonusComponent.js";
 
 export class EntityFactory {
     constructor(world, resourceManager) {
         this.world = world;
         this.resourceManager = resourceManager;
+    }
+
+    hero(data) {
+        let entity = new Entity();
+
+        entity.addComponent(new HeroComponent({
+            health: data.health,
+            maxHealth: data.maxHealth,
+            experience: data.experience,
+            position: data.position,
+            speed: data.speed,
+            state: data.state,
+            isAlive: data.isAlive,
+            experienceMax: data.experienceMax,
+            gravity: data.gravity,
+            velocity: data.velocity
+        }));
+
+        entity.addComponent(new PositionComponent({
+            x: data.position.x,
+            y: data.position.y
+        }));
+
+        entity.addComponent(new AnimationComponent({
+            animations: data.animations,
+            currentAnimation: data.animations.idle
+        }));
+
+        entity.addComponent(new WeaponComponent({
+            type: data.weapon.type,
+            damage: data.weapon.damage,
+            range: data.weapon.range,
+            cooldown: data.weapon.cooldown,
+            maxAmmo: data.weapon.maxAmmo,
+            ammo: data.weapon.ammo
+        }));
+
+        entity.addComponent(new ColliderComponent({
+            width: data.collider.width,
+            height: data.collider.height
+        }));
+
+        entity.addComponent(new PhysicsComponent({
+            gravity: data.gravity,
+            isGrounded: data.isGrounded,
+            velocity: data.velocity
+        }));
+
+        return entity;
+    }
+
+    createBonus({type, position, value}) {
+        let entity = new Entity();
+        entity.addComponent(new BonusComponent({
+            type,
+            position,
+            value
+        }));
+        return entity;
     }
 
     background({texture, width, height, x, y}) {
@@ -63,12 +128,12 @@ export class EntityFactory {
         return entity;
     }
 
-    physics({velocity, gravity, isGrounded}) {
+    bonus({type, position, value}) {
         let entity = new Entity();
-        entity.addComponent(new PhysicsComponent({
-            velocity,
-            gravity,
-            isGrounded
+        entity.addComponent(new BonusComponent({
+            type,
+            position,
+            value
         }));
         return entity;
     }

@@ -10,7 +10,6 @@ export class PlatformComponent extends Component {
         this.y = data.y;
         this.alpha = data.alpha || 1;
         this.color = data.color;
-        this.sprite = null;
     }
 }
 

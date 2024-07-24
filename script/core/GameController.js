@@ -1,8 +1,7 @@
 import {World} from '../ecs/ECS.js';
 import {BackgroundSystem} from '../systems/BackgroundSystem.js';
 import {PlatformSystem} from '../systems/PlatformSystem.js';
-import {PhysicsSystem} from '../subsystems/PhysicsSystem.js';
-import {CollisionSystem} from '../subsystems/CollisionSystem.js';
+import {InputSystem} from '../systems/InputSystem.js';
 import {Loader} from './Loader.js';
 import {LevelParser} from './LevelParser.js';
 import level1Data from '/gamedata/levels/level1.json';
@@ -20,17 +19,16 @@ export class GameController {
         document.body.appendChild(app.view);
 
         const world = new World();
+        const inputSystem = new InputSystem();
         world.addSystem(new BackgroundSystem(app.stage));
         world.addSystem(new PlatformSystem(app.stage));
-        world.addSystem(new PhysicsSystem());
-        world.addSystem(new CollisionSystem());
-        //world.addSystem(new SpriteSystem(app.stage));
+        world.addSystem(inputSystem);
 
-        window.addEventListener('resize', () => resizeCanvas(app, world))
+        window.addEventListener('resize', () => resizeCanvas(app, world));
         resizeCanvas(app, world);
         await Loader.loadAssets();
 
-        let factory = new EntityFactory(world, PIXI.Assets)
+        let factory = new EntityFactory(world, PIXI.Assets);
         try {
             await LevelParser.loadLevel(level1Data, world, factory);
         } catch (error) {
@@ -39,6 +37,7 @@ export class GameController {
         }
 
         app.ticker.add((delta) => {
+            inputSystem.update(delta);
             world.update(delta);
         });
     }
