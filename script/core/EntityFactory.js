@@ -1,11 +1,7 @@
 import {Entity} from "../ecs/ECS.js";
-import {HeroComponent} from "../components/HeroComponent.js";
-import {PositionComponent} from "../components/PositionComponent.js";
-import {AnimationComponent} from "../components/AnimationComponent.js";
-import {ColliderComponent} from "../components/ColliderComponent.js";
-import {BackgroundComponent} from "../components/BackgroundComponent";
-import {PlatformComponent} from "../components/PlatformComponent";
-import {BonusComponent} from "../components/BonusComponent.js";
+import {PositionComponent} from "../components/features/PositionComponent.js";
+import {BackgroundComponent} from "../components/object/BackgroundComponent";
+import {PlatformComponent} from "../components/object/PlatformComponent";
 
 export class EntityFactory {
     constructor(world, resourceManager) {
@@ -13,93 +9,62 @@ export class EntityFactory {
         this.resourceManager = resourceManager;
     }
 
-    hero(data) {
+    background(data) {
+        const texture = this.resourceManager.get(data.texture);
         let entity = new Entity();
-
-        entity.addComponent(new HeroComponent({
-            position: data.position,
-            speed: data.speed,
-            state: data.state,
+        entity.addComponent(new BackgroundComponent({
+            texture,
+            width: data.width,
+            height: data.height,
         }));
-
         entity.addComponent(new PositionComponent({
             x: data.position.x,
             y: data.position.y
         }));
-
-        entity.addComponent(new AnimationComponent({
-            animations: data.animations,
-            currentAnimation: data.animations.idle
-        }));
-
-        entity.addComponent(new ColliderComponent({
-            width: data.collider.width,
-            height: data.collider.height
-        }));
-
         return entity;
     }
 
-    createBonus({type, position, value}) {
-        let entity = new Entity();
-        entity.addComponent(new BonusComponent({
-            type,
-            position,
-            value
-        }));
-        return entity;
-    }
-
-    background({texture, width, height, x, y}) {
-        texture = this.resourceManager.get(texture);
-        let entity = new Entity();
-
-        entity.addComponent(new BackgroundComponent({
-            texture: texture,
-            width,
-            height,
-            x,
-            y
-        }));
-
-        return entity;
-    }
-
-    wall({width, height, x, y, alpha, color}) {
+    wall(data) {
         let entity = new Entity();
         entity.addComponent(new PlatformComponent({
-            width,
-            height,
-            x,
-            y,
-            alpha,
-            color
+            width: data.width,
+            height: data.height,
+            alpha: data.alpha,
+            color: data.color
+        }));
+        entity.addComponent(new PositionComponent({
+            x: data.position.x,
+            y: data.position.y
         }));
         return entity;
     }
 
-    platform({width, height, x, y, alpha, color}) {
+    platform(data) {
         let entity = new Entity();
         entity.addComponent(new PlatformComponent({
-            width,
-            height,
-            x,
-            y,
-            alpha,
-            color
+            width: data.width,
+            height: data.height,
+            alpha: data.alpha,
+            color: data.color
+        }));
+        entity.addComponent(new PositionComponent({
+            x: data.position.x,
+            y: data.position.y
         }));
         return entity;
     }
 
-    trapdoor({width, height, x, y, alpha, color}) {
+    trapdoor(data) {
         let entity = new Entity();
         entity.addComponent(new PlatformComponent({
-            width,
-            height,
-            x,
-            y,
-            alpha,
-            color
+            width: data.width,
+            height: data.height,
+            alpha: data.alpha,
+            color: data.color
+        }));
+        entity.addComponent(new PositionComponent({
+            x: data.position.x,
+            y: data.position.y
         }));
         return entity;
     }

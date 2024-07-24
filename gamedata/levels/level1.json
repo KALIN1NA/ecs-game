@@ -11,255 +11,241 @@
       "texture": "level1_bg",
       "width": 2560,
       "height": 1460,
-      "x": 0,
-      "y": 0
+      "position": {
+        "x": 0,
+        "y": 0
+      }
     },
     {
       "type": "wall",
       "width": 50,
       "height": 1460,
-      "x": 40,
-      "y": 0,
       "alpha": 0,
-      "color": "0xFF0000"
+      "color": "0xFF0000",
+      "position": {
+        "x": 40,
+        "y": 0
+      }
     },
     {
       "type": "wall",
       "width": 50,
       "height": 1460,
-      "x": 2460,
-      "y": 0,
       "alpha": 0,
-      "color": "0xFF0000"
+      "color": "0xFF0000",
+      "position": {
+        "x": 2460,
+        "y": 0
+      }
     },
     {
       "type": "platform",
       "width": 470,
       "height": 40,
-      "x": 190,
-      "y": 435,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0x00",
+      "position": {
+        "x": 190,
+        "y": 435
+      }
     },
     {
       "type": "platform",
       "width": 570,
       "height": 40,
-      "x": 950,
-      "y": 580,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0x00",
+      "position": {
+        "x": 950,
+        "y": 580
+      }
     },
     {
       "type": "platform",
       "width": 780,
       "height": 40,
-      "x": 1680,
-      "y": 580,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0x00",
+      "position": {
+        "x": 1680,
+        "y": 580
+      }
     },
     {
       "type": "trapdoor",
       "width": 150,
       "height": 40,
-      "x": 800,
-      "y": 580,
       "alpha": 0,
-      "color": "0xFF0000"
+      "color": "0xFF0000",
+      "position": {
+        "x": 800,
+        "y": 580
+      }
     },
     {
       "type": "trapdoor",
       "width": 150,
       "height": 40,
-      "x": 1525,
-      "y": 580,
       "alpha": 0,
-      "color": "0xFF0000"
+      "color": "0xFF0000",
+      "position": {
+        "x": 1525,
+        "y": 580
+      }
     },
     {
       "type": "platform",
       "width": 1120,
       "height": 40,
-      "x": 310,
-      "y": 820,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0x00",
+      "position": {
+        "x": 310,
+        "y": 820
+      }
     },
     {
       "type": "platform",
       "width": 340,
       "height": 40,
-      "x": 1575,
-      "y": 820,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0x00",
+      "position": {
+        "x": 1575,
+        "y": 820
+      }
     },
     {
       "type": "platform",
       "width": 400,
       "height": 40,
-      "x": 2060,
-      "y": 820,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0x00",
+      "position": {
+        "x": 2060,
+        "y": 820
+      }
     },
     {
       "type": "trapdoor",
       "width": 220,
       "height": 40,
-      "x": 90,
-      "y": 820,
       "alpha": 0,
-      "color": "0xFF0000"
+      "color": "0xFF0000",
+      "position": {
+        "x": 90,
+        "y": 820
+      }
     },
     {
       "type": "trapdoor",
       "width": 150,
       "height": 40,
-      "x": 1430,
-      "y": 820,
       "alpha": 0,
-      "color": "0xFF0000"
+      "color": "0xFF0000",
+      "position": {
+        "x": 1430,
+        "y": 820
+      }
     },
     {
       "type": "trapdoor",
       "width": 150,
       "height": 40,
-      "x": 1915,
-      "y": 820,
       "alpha": 0,
-      "color": "0xFF0000"
+      "color": "0xFF0000",
+      "position": {
+        "x": 1915,
+        "y": 820
+      }
     },
     {
       "type": "platform",
       "width": 330,
       "height": 40,
-      "x": 300,
-      "y": 1080,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0x00",
+      "position": {
+        "x": 300,
+        "y": 1080
+      }
     },
     {
       "type": "platform",
       "width": 550,
       "height": 40,
-      "x": 800,
-      "y": 1080,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0x00",
+      "position": {
+        "x": 800,
+        "y": 1080
+      }
     },
     {
       "type": "platform",
       "width": 440,
       "height": 40,
-      "x": 1500,
-      "y": 1080,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0x00",
+      "position": {
+        "x": 1500,
+        "y": 1080
+      }
     },
     {
       "type": "trapdoor",
       "width": 210,
       "height": 40,
-      "x": 90,
-      "y": 1080,
       "alpha": 0,
-      "color": "0xFF0000"
+      "color": "0xFF0000",
+      "position": {
+        "x": 90,
+        "y": 1080
+      }
     },
     {
       "type": "trapdoor",
       "width": 170,
       "height": 40,
-      "x": 630,
-      "y": 1080,
       "alpha": 0,
-      "color": "0xFF0000"
+      "color": "0xFF0000",
+      "position": {
+        "x": 630,
+        "y": 1080
+      }
     },
     {
       "type": "trapdoor",
       "width": 230,
       "height": 40,
-      "x": 1350,
-      "y": 1080,
       "alpha": 0,
-      "color": "0xFF0000"
+      "color": "0xFF0000",
+      "position": {
+        "x": 1350,
+        "y": 1080
+      }
     },
     {
       "type": "platform",
       "width": 440,
       "height": 40,
-      "x": 2020,
-      "y": 1180,
       "alpha": 0,
-      "color": "0x00"
+      "color": "0x00",
+      "position": {
+        "x": 2020,
+        "y": 1180
+      }
     },
     {
       "type": "platform",
       "width": 2420,
       "height": 40,
-      "x": 90,
-      "y": 1420,
       "alpha": 0,
-      "color": "0xFF0000"
-    },
-    {
-      "type": "hero",
-      "health": 100,
-      "maxHealth": 100,
-      "experience": 0,
+      "color": "0xFF0000",
       "position": {
-        "x": 400,
-        "y": 100
-      },
-      "speed": 6,
-      "animations": {
-        "idle": "hero_idle",
-        "walk": "hero_walk",
-        "jump": "hero_jump",
-        "shoot": "hero_shoot",
-        "walkShoot": "hero_walk_shoot",
-        "dead": "hero_dead"
-      },
-      "weapon": {
-        "type": "sword",
-        "damage": 10,
-        "range": 100,
-        "cooldown": 500,
-        "maxAmmo": 20,
-        "ammo": 20
-      },
-      "collider": {
-        "width": 50,
-        "height": 100
-      },
-      "state": "idle",
-      "isAlive": true,
-      "experienceMax": 100,
-      "gravity": 0.98,
-      "velocity": {
-        "x": 0,
-        "y": 0
-      },
-      "isGrounded": true
-    },
-    {
-      "type": "bonus",
-      "name": "health",
-      "position": {
-        "x": 450,
-        "y": 880
-      },
-      "value": 10
-    },
-    {
-      "type": "bonus",
-      "name": "shield",
-      "position": {
-        "x": 600,
-        "y": 880
-      },
-      "value": 5
+        "x": 90,
+        "y": 1420
+      }
     }
   ]
 }

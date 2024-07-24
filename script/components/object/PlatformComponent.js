@@ -1,4 +1,4 @@
-import {Component} from '../ecs/ECS';
+import {Component} from '../../ecs/ECS';
 
 export class PlatformComponent extends Component {
     constructor(data) {
@@ -6,8 +6,7 @@ export class PlatformComponent extends Component {
         this.type = data.type;
         this.width = data.width;
         this.height = data.height;
-        this.x = data.x;
-        this.y = data.y;
+        this.position = data.position;
         this.alpha = data.alpha || 1;
         this.color = data.color;
     }

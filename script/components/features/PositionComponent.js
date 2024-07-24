@@ -1,4 +1,4 @@
-import {Component} from '../ecs/ECS.js';
+import {Component} from '../../ecs/ECS.js';
 
 export class PositionComponent extends Component {
     constructor(data) {

@@ -1,5 +1,4 @@
 import {PlatformSystem} from "../systems/PlatformSystem";
-
 export function resizeCanvas(app, world) {
     const aspectRatio = 16 / 8;
     const width = window.innerWidth;
@@ -26,7 +25,6 @@ export function resizeCanvas(app, world) {
             }
         }
     }
-
     const platformSystem = world.getSystem(PlatformSystem);
     if (platformSystem) {
         platformSystem.updatePlatforms();
