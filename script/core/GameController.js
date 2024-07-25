@@ -1,5 +1,5 @@
 import {World} from '../ecs/ECS.js';
-import {BackgroundSystem} from '../systems/BackgroundSystem.js';
+import {SpriteSystem} from '../systems/SpriteSystem.js';
 import {PlatformSystem} from '../systems/PlatformSystem.js';
 import {Loader} from './Loader.js';
 import {LevelParser} from './LevelParser.js';
@@ -7,7 +7,6 @@ import level1Data from '/gamedata/levels/level1.json';
 import * as PIXI from 'pixijs';
 import EntityFactory from "./EntityFactory";
 import {resizeCanvas} from "../utils/Resize";
-
 export class GameController {
     static async start() {
         const app = new PIXI.Application({
@@ -18,7 +17,7 @@ export class GameController {
         document.body.appendChild(app.view);
 
         const world = new World();
-        world.addSystem(new BackgroundSystem(app.stage));
+        world.addSystem(new SpriteSystem(app.stage));
         world.addSystem(new PlatformSystem(app.stage));
 
         window.addEventListener('resize', () => resizeCanvas(app, world));

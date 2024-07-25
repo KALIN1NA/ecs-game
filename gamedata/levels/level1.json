@@ -17,6 +17,17 @@
       }
     },
     {
+      "name": "hero",
+      "type": "sprite",
+      "texture": "hero_idle",
+      "width": 78,
+      "height": 95,
+      "position": {
+        "x": 400,
+        "y": 100
+      }
+    },
+    {
       "type": "wall",
       "width": 50,
       "height": 1460,

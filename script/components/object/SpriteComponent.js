@@ -1,5 +1,6 @@
 import {Component} from '/script/ecs/ECS.js';
-export class BackgroundComponent extends Component {
+
+export class SpriteComponent extends Component {
     constructor(data) {
         super(data);
         this.texture = data.texture;

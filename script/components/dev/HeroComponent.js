@@ -6,7 +6,6 @@ export class HeroComponent extends Component {
         this.health = data.health;
         this.maxHealth = data.maxHealth;
         this.experience = data.experience;
-        this.position = data.position;
         this.speed = data.speed;
         this.animations = data.animations;
         this.weapon = data.weapon;

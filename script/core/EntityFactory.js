@@ -1,7 +1,9 @@
 import {Entity} from "../ecs/ECS.js";
 import {PositionComponent} from "../components/features/PositionComponent.js";
-import {BackgroundComponent} from "../components/object/BackgroundComponent";
+import {SpriteComponent} from "../components/object/SpriteComponent";
 import {PlatformComponent} from "../components/object/PlatformComponent";
+
+//import {SpriteComponent} from "../components/object/SpriteComponent";
 
 export class EntityFactory {
     constructor(world, resourceManager) {
@@ -12,10 +14,25 @@ export class EntityFactory {
     background(data) {
         const texture = this.resourceManager.get(data.texture);
         let entity = new Entity();
-        entity.addComponent(new BackgroundComponent({
-            texture,
+        entity.addComponent(new SpriteComponent({
+            texture: texture,
             width: data.width,
             height: data.height,
+        }));
+        entity.addComponent(new PositionComponent({
+            x: data.position.x,
+            y: data.position.y
+        }));
+        return entity;
+    }
+
+    sprite(data) {
+        const texture = this.resourceManager.get(data.texture);
+        let entity = new Entity();
+        entity.addComponent(new SpriteComponent({
+            texture: texture,
+            width: data.width,
+            height: data.height
         }));
         entity.addComponent(new PositionComponent({
             x: data.position.x,
